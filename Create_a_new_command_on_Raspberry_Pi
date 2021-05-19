@@ -66,19 +66,19 @@ bash: welcome.sh: command not found
 		echo "It's $(date)"
 
 
-CHANGING_TXT_COLOR 
+### 5.CHANGING_TXT_COLOR 
 -e
 \e[...m
 32 (notes txt color)
 0 (default txt)
 
-### 5.UPDATING_WELCOME.SH_TEXT COLOR/BOLD
+### 6.UPDATING_WELCOME.SH_TEXT COLOR/BOLD
 	#!/bin/bash
 	echo -e "\e[1;37mWelcome to \e[0;35m$HOSTNAME"
 	sleep 2
 	echo -e "\e[36mIt's \e[32m$(date)"
 
-### 6.COMBINING_TO_CUSTOMISE_COMMAND
+### 7.COMBINING_TO_CUSTOMISE_COMMAND
 	pi@askWhopi:~ $ echo -e "\e[1:3:4:37mWelcome \e[0mEveryone"
 	Welcome Everyone
 	pi@askWhopi:~ $ echo -e "\e[1;3;4;37mWelcome \e[0mEveryone"
@@ -92,10 +92,10 @@ CHANGING_TXT_COLOR
 7 for reverse video (swap background and foreground colours)
 9 for crossed-out text
 
-### 7.ADD_COMMAND_TO_MENU
+### 8.ADD_COMMAND_TO_MENU
 **see screenshot
 
-### 8.WRITING_COMPLEX_SCRIPTS_bash-colours.sh
+### 9.WRITING_COMPLEX_SCRIPTS_bash-colours.sh
 	#!/bin/bash
 	for i in {0..255} ; do echo -en "\e[38;5;${i}m \e[0m" ; done ; echo
 **remember to make script executable 
@@ -111,14 +111,14 @@ echo (runs loop)
 0 to 255 (range of colors)
 -n (not to output new line after each line)
 
-### 9.ADD_COMMAND_TO_ACCESSORIES
+### 10.ADD_COMMAND_TO_ACCESSORIES
 (see screenshot accessories_bash-colours_sh)
 
-### 10.ADD_ICON_FOR_COMMAND
+### 11.ADD_ICON_FOR_COMMAND
 (see screen shot create_icon_for_command.png)
 
 
-### 11.CHALLENGE: CREATE A NEW COMMAND 
+### 12.CHALLENGE: CREATE A NEW COMMAND 
 	pi@askWhopi:~ $ chmod u+x+r+w calendar.sh
 	pi@askWhopi:~ $ ls -l calendar.sh 
 	-rwxr--r-- 1 pi pi 19 May 18 20:49 calendar.sh
