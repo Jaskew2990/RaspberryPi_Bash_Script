@@ -1,4 +1,4 @@
-Create_a_new_command_on_Raspberry_Pi
+#### Create_Bash_Script_Raspberry_Pi
 
 	pi@raspberrypi:~ $ echo project 5 on raspberrypi creating a new command 
 	project 5 on raspberrypi creating a new command
@@ -13,7 +13,7 @@ Create_a_new_command_on_Raspberry_Pi
 	pi@raspberrypi:~ $ echo "It's $(date)"
 	It's Wed 12 May 2021 09:35:22 PM EDT
 
-CREATING_SHELL_SCRIPT
+### 1.CREATING_SHELL_SCRIPT
 	pi@raspberrypi:~ $ geany welcome.sh &
 [1] 13534
 
@@ -28,7 +28,7 @@ bash: welcome.sh: command not found
 	pi@raspberrypi:~ $ ls -l welcome.sh
 	-rw-r--r-- 1 pi pi 31 May 12 21:47 welcome.sh
 
-ADD_EXECUTE_PERMISSION_to_script
+### 2.ADD_EXECUTE_PERMISSION_to_script
 	pi@raspberrypi:~ $ chmod u+x welcome.sh
 	pi@raspberrypi:~ $ ls -l welcome.sh
 	-rwxr--r-- 1 pi pi 31 May 12 21:47 welcome.sh
@@ -44,7 +44,7 @@ ADD_EXECUTE_PERMISSION_to_script
 		(program exited with code: 0)
 		Press return to continue
 
-ADDING_ADDITONAL_LINES_TO_SCRIPT
+### 3.ADDING_ADDITONAL_LINES_TO_SCRIPT
 
 		#!/bin/bash
 		echo "Welcome to $HOSTNAME"
@@ -59,7 +59,7 @@ ADDING_ADDITONAL_LINES_TO_SCRIPT
 		(program exited with code: 0)
 		Press return to continue
 
-ADDING_sleep_between_commands_to_create_a_delay
+### 4.ADDING_sleep_between_commands_to_create_a_delay
 		#!/bin/bash
 		echo "Welcome to $HOSTNAME"
 		sleep 2
@@ -72,13 +72,13 @@ CHANGING_TXT_COLOR
 32 (notes txt color)
 0 (default txt)
 
-UPDATING_WELCOME.SH_TEXT COLOR/BOLD
+### 5.UPDATING_WELCOME.SH_TEXT COLOR/BOLD
 	#!/bin/bash
 	echo -e "\e[1;37mWelcome to \e[0;35m$HOSTNAME"
 	sleep 2
 	echo -e "\e[36mIt's \e[32m$(date)"
 
-COMBINING_TO_CUSTOMISE_COMMAND
+### 6.COMBINING_TO_CUSTOMISE_COMMAND
 	pi@askWhopi:~ $ echo -e "\e[1:3:4:37mWelcome \e[0mEveryone"
 	Welcome Everyone
 	pi@askWhopi:~ $ echo -e "\e[1;3;4;37mWelcome \e[0mEveryone"
@@ -92,10 +92,10 @@ COMBINING_TO_CUSTOMISE_COMMAND
 7 for reverse video (swap background and foreground colours)
 9 for crossed-out text
 
-ADD_COMMAND_TO_MENU
+### 7.ADD_COMMAND_TO_MENU
 **see screenshot
 
-WRITING_COMPLEX_SCRIPTS_bash-colours.sh
+### 8.WRITING_COMPLEX_SCRIPTS_bash-colours.sh
 	#!/bin/bash
 	for i in {0..255} ; do echo -en "\e[38;5;${i}m \e[0m" ; done ; echo
 **remember to make script executable 
@@ -111,14 +111,14 @@ echo (runs loop)
 0 to 255 (range of colors)
 -n (not to output new line after each line)
 
-ADD_COMMAND_TO_ACCESSORIES
+### 9.ADD_COMMAND_TO_ACCESSORIES
 (see screenshot accessories_bash-colours_sh)
 
-ADD_ICON_FOR_COMMAND
+### 10.ADD_ICON_FOR_COMMAND
 (see screen shot create_icon_for_command.png)
 
 
-CHALLENGE: CREATE A NEW COMMAND 
+### 11.CHALLENGE: CREATE A NEW COMMAND 
 	pi@askWhopi:~ $ chmod u+x+r+w calendar.sh
 	pi@askWhopi:~ $ ls -l calendar.sh 
 	-rwxr--r-- 1 pi pi 19 May 18 20:49 calendar.sh
