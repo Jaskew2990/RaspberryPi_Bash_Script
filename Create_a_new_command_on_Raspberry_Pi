@@ -1,0 +1,130 @@
+Create_a_new_command_on_Raspberry_Pi
+
+	pi@raspberrypi:~ $ echo project 5 on raspberrypi creating a new command 
+	project 5 on raspberrypi creating a new command
+	pi@raspberrypi:~ $ 
+	pi@raspberrypi:~ $ echo It's Wednesday
+	> '
+	Its Wednesday
+	pi@raspberrypi:~ $ echo "or It's actually hump day"
+	or It's actually hump day
+	pi@raspberrypi:~ $ date
+	Wed 12 May 2021 09:34:31 PM EDT
+	pi@raspberrypi:~ $ echo "It's $(date)"
+	It's Wed 12 May 2021 09:35:22 PM EDT
+
+CREATING_SHELL_SCRIPT
+	pi@raspberrypi:~ $ geany welcome.sh &
+[1] 13534
+
+		#!/bin/bash
+		echo "It's $(date)"
+
+(script was unable to run because it doesn't have the proper permissions)
+
+pi@raspberrypi:~ $ welcome.sh
+bash: welcome.sh: command not found
+[2]+  Done                    geany welcome.sh
+	pi@raspberrypi:~ $ ls -l welcome.sh
+	-rw-r--r-- 1 pi pi 31 May 12 21:47 welcome.sh
+
+ADD_EXECUTE_PERMISSION_to_script
+	pi@raspberrypi:~ $ chmod u+x welcome.sh
+	pi@raspberrypi:~ $ ls -l welcome.sh
+	-rwxr--r-- 1 pi pi 31 May 12 21:47 welcome.sh
+
+(u - user)
+(x - run(execute) permission)
+
+(welcome.sh script_executed)
+		It's Wed 12 May 2021 11:31:15 PM EDT
+
+
+		------------------
+		(program exited with code: 0)
+		Press return to continue
+
+ADDING_ADDITONAL_LINES_TO_SCRIPT
+
+		#!/bin/bash
+		echo "Welcome to $HOSTNAME"
+		echo "It's (date)"
+
+(execute script)
+		Welcome to raspberrypi
+		It's Wed 12 May 2021 11:34:30 PM EDT
+
+
+		------------------
+		(program exited with code: 0)
+		Press return to continue
+
+ADDING_sleep_between_commands_to_create_a_delay
+		#!/bin/bash
+		echo "Welcome to $HOSTNAME"
+		sleep 2
+		echo "It's $(date)"
+
+
+CHANGING_TXT_COLOR 
+-e
+\e[...m
+32 (notes txt color)
+0 (default txt)
+
+UPDATING_WELCOME.SH_TEXT COLOR/BOLD
+	#!/bin/bash
+	echo -e "\e[1;37mWelcome to \e[0;35m$HOSTNAME"
+	sleep 2
+	echo -e "\e[36mIt's \e[32m$(date)"
+
+COMBINING_TO_CUSTOMISE_COMMAND
+	pi@askWhopi:~ $ echo -e "\e[1:3:4:37mWelcome \e[0mEveryone"
+	Welcome Everyone
+	pi@askWhopi:~ $ echo -e "\e[1;3;4;37mWelcome \e[0mEveryone"
+	Welcome Everyone
+	pi@askWhopi:~ $ echo -e "\e[1;3;4;37mWelcome \e[2;5;9;37mEveryone"
+
+2 for dark/faint text
+3 for italic text
+4 for underlined text
+5 for blinking text
+7 for reverse video (swap background and foreground colours)
+9 for crossed-out text
+
+ADD_COMMAND_TO_MENU
+**see screenshot
+
+WRITING_COMPLEX_SCRIPTS_bash-colours.sh
+	#!/bin/bash
+	for i in {0..255} ; do echo -en "\e[38;5;${i}m \e[0m" ; done ; echo
+**remember to make script executable 
+	pi@askWhopi:~ $ ls -l bash-colours.sh
+	-rw-r--r-- 1 pi pi 85 May 18 19:46 bash-colours.sh
+	pi@askWhopi:~ $ chmod u+x bash-colours.sh
+	pi@askWhopi:~ $ ls -l bash-colours.sh
+	-rwxr--r-- 1 pi pi 85 May 18 19:46 bash-colours.sh
+(see screenshot chmod_bash-colours_sh)
+(see screenshot chmod_bash-colours_sh2)
+
+echo (runs loop)
+0 to 255 (range of colors)
+-n (not to output new line after each line)
+
+ADD_COMMAND_TO_ACCESSORIES
+(see screenshot accessories_bash-colours_sh)
+
+ADD_ICON_FOR_COMMAND
+(see screen shot create_icon_for_command.png)
+
+
+CHALLENGE: CREATE A NEW COMMAND 
+	pi@askWhopi:~ $ chmod u+x+r+w calendar.sh
+	pi@askWhopi:~ $ ls -l calendar.sh 
+	-rwxr--r-- 1 pi pi 19 May 18 20:49 calendar.sh
+	pi@askWhopi:~ $ geany calendar.sh
+(see screenshot execute_calendar_sh.png)
+(see screenshot calendar_added_to_desktop.png)
+
+
+ 
